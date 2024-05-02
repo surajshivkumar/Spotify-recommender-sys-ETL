@@ -1,0 +1,12 @@
+{
+  "spotify": {
+    "client_id": "0cf227a2915c41a9a7c914b7dd1c2360",
+    "client_secret": "1e816a7f2e494482b92ae25aae06a023"
+  },
+  "outputData": {
+    "processedTracks": "../data/output/tracks.csv",
+    "processedAlbums": "../data/output/albums.csv",
+    "processedArtists": "../data/output/artists.csv",
+    "processedAudioFeatures": "../data/output/audio_features.csv"
+  }
+}
