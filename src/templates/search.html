@@ -14,30 +14,41 @@
     />
     <link
       rel="icon"
-      href="https://cdn.iconscout.com/icon/free/png-256/free-apple-music-3628628-3029853.png"
+      href="../static/img/spotify-logo.png"
       type="image/x-icon"
     />
     <link rel="stylesheet" href="../static/css/styles.css" />
   </head>
 
   <body>
-    <div class="centered-container">
-      <img
-        src="https://cdn.iconscout.com/icon/free/png-256/free-apple-music-3628628-3029853.png"
-        alt="Logo"
-        class="logo"
-      />
-      <br />
-      <div class="search-container">
-        <input type="text" placeholder="Search..." class="search-bar" />
-        <br />
-        <br />
-        <!-- <button onclick="redirectToIndex()" class="search-btn">Search</button> -->
-        <a href="/recommend"><button class="search-btn">Search</button></a>
+    <div>
+        <div class="Heading">
+            <h1 class="heading-text">Spoti-Suggest</h1>
+            <img src="../static/img/spotify-logo.png" class="landing-logo" />
+        </div>
+        
+      <div class="art-logo">
+        <img src="../static/img/art.png" class="landing-art" />
+        <h2 style="margin-left:5rem; color: white;">Search for a song on your mind</h2>
+        <div class="search">
+           
+            <div class="icon">
+            </div>
+      
+            <div class="input">
+              <input type="text" placeholder="Search..." id="mysearch" />
+            </div>
+      
+            <span
+              class="clear"
+              onclick="document.getElementById('mysearch').value = ''"
+              >x</span
+            >
+          </div>
       </div>
-    </div>
+   
 
-    <script>
+    <!-- <script>
       function redirectToIndex() {
         // Get the search query from the input field
         var searchQuery = document.querySelector(".search-bar").value;
@@ -46,6 +57,7 @@
         window.location.href =
           "index.html?query=" + encodeURIComponent(searchQuery);
       }
-    </script>
+    </script> -->
+    <script src="../static/js/search.js"></script>
   </body>
 </html>
