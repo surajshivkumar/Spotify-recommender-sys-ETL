@@ -11,7 +11,7 @@ app = Flask(__name__)
 @app.route("/")
 @app.route("/home")
 def home():
-    return render_template("index.html")
+    return render_template("search.html")
 
 @app.route("/recommend")
 def dashboard():

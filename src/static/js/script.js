@@ -167,7 +167,7 @@ backwardButton.addEventListener("click", function () {
 
 updateSongInfo();
 
-var swiper = new Swiper(".swiper", {
+var swiperplaylist = new Swiper(".swiper", {
   effect: "coverflow",
   grabCursor: true,
   centeredSlides: true,
@@ -190,3 +190,4 @@ var swiper = new Swiper(".swiper", {
     el: ".swiper-pagination",
   },
 });
+

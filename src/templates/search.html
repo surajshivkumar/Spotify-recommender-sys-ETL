@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Music Player || Foremost Project</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
+    <link
+      rel="icon"
+      href="https://cdn.iconscout.com/icon/free/png-256/free-apple-music-3628628-3029853.png"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="../static/css/styles.css" />
+  </head>
+
+  <body>
+    <div class="centered-container">
+      <img
+        src="https://cdn.iconscout.com/icon/free/png-256/free-apple-music-3628628-3029853.png"
+        alt="Logo"
+        class="logo"
+      />
+      <br />
+      <div class="search-container">
+        <input type="text" placeholder="Search..." class="search-bar" />
+        <br />
+        <br />
+        <!-- <button onclick="redirectToIndex()" class="search-btn">Search</button> -->
+        <a href="/recommend"><button class="search-btn">Search</button></a>
+      </div>
+    </div>
+
+    <script>
+      function redirectToIndex() {
+        // Get the search query from the input field
+        var searchQuery = document.querySelector(".search-bar").value;
+
+        // Redirect to index.html with search query as URL parameter
+        window.location.href =
+          "index.html?query=" + encodeURIComponent(searchQuery);
+      }
+    </script>
+  </body>
+</html>

@@ -1,58 +1,73 @@
-<head>
-  <script src="../static/js/script.js"></script>
-  <link rel="stylesheet" type="text/css" href="../static/css/styles.css" />
-
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Player || Foremost Project</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <link rel="icon" href="https://cdn.iconscout.com/icon/free/png-256/free-apple-music-3628628-3029853.png" type="image/x-icon">
+  </head>
   <body>
     <main>
       <nav class="main-menu">
         <div>
           <div class="user-info">
-            <img src="../static/img/suraj.jpeg" alt="user" />
-            <p>Suraj</p>
+            <img
+              src="https://img.freepik.com/premium-vector/vector-icon-girl-wearing-headphones_176841-6678.jpg"
+              alt="user" />
+            <p>Sharvari More</p>
           </div>
           <ul>
             <li class="nav-item active">
               <a href="#">
-                <i class="fa fa-map nav-icon"></i>
+                <i class="fa fa-search nav-icon"></i>
                 <span class="nav-text">Discover</span>
+                <span class="tooltip">Browse</span>
               </a>
             </li>
 
             <li class="nav-item">
-              <a href="#">
-                <i class="fa fa-arrow-trend-up nav-icon"></i>
-                <span class="nav-text">Trending</span>
+              <a href="#artists-section">
+                <i class="fa fa-guitar nav-icon"></i>
+                <span class="nav-text">Artists</span>
+                <span class="tooltip">Artists</span>
               </a>
             </li>
 
             <li class="nav-item">
-              <a href="#">
+              <a href="#albums-section">
                 <i class="fa fa-compact-disc nav-icon"></i>
                 <span class="nav-text">Album</span>
+                <span class="tooltip">Albums</span>
               </a>
             </li>
 
             <li class="nav-item">
-              <a href="#">
-                <i class="fa fa-circle-play nav-icon"></i>
-                <span class="nav-text">Playlist</span>
+              <a href="#chart-section">
+                <i class="fa fa-chart-line"></i>
+                <span class="nav-text">Chart</span>
+                <span class="tooltip">Chart</span>
               </a>
             </li>
 
-            <li class="nav-item">
+            <!-- <li class="nav-item">
               <a href="#">
                 <i class="fa fa-heart nav-icon"></i>
                 <span class="nav-text">Favorites</span>
               </a>
-            </li>
+            </li> -->
           </ul>
         </div>
 
+<!--         
         <ul>
           <li class="nav-item">
             <a href="#">
               <i class="fa fa-user nav-icon"></i>
               <span class="nav-text">Profile</span>
+              <span class="tooltip">Profile</span>
             </a>
           </li>
 
@@ -60,6 +75,7 @@
             <a href="#">
               <i class="fa fa-gear nav-icon"></i>
               <span class="nav-text">Settings</span>
+              <span class="tooltip">Settings</span>
             </a>
           </li>
 
@@ -67,21 +83,21 @@
             <a href="#">
               <i class="fa fa-right-from-bracket nav-icon"></i>
               <span class="nav-text">Logout</span>
+              <span class="tooltip">Logout</span>
             </a>
-          </li>
+          </li> -->
         </ul>
       </nav>
 
       <section class="content">
         <div class="left-content">
-          <div class="slider-container">
+          <!-- <div class="slider-container">
             <h1>Popular Playlist</h1>
             <div class="swiper">
               <div class="swiper-wrapper">
                 <div class="swiper-slide">
                   <img
-                    src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/95b52c32-f5da-4fe6-956d-a5ed118bbdd2"
-                  />
+                    src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/95b52c32-f5da-4fe6-956d-a5ed118bbdd2" />
                   <div class="slide-overlay">
                     <h2>Midnight Moods</h2>
                     <button>
@@ -91,8 +107,7 @@
                 </div>
                 <div class="swiper-slide">
                   <img
-                    src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/6ddf81f5-2689-4f34-bf80-a1e07f14621c"
-                  />
+                    src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/6ddf81f5-2689-4f34-bf80-a1e07f14621c" />
                   <div class="slide-overlay">
                     <h2>Party Starters</h2>
                     <button>
@@ -102,8 +117,7 @@
                 </div>
                 <div class="swiper-slide">
                   <img
-                    src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/ab52d9d0-308e-43e0-a577-dce35fedd2a3"
-                  />
+                    src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/ab52d9d0-308e-43e0-a577-dce35fedd2a3" />
                   <div class="slide-overlay">
                     <h2>Relaxing Tones</h2>
                     <button>
@@ -113,8 +127,7 @@
                 </div>
                 <div class="swiper-slide">
                   <img
-                    src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/20c8fdd5-9f4a-4917-ae90-0239a52e8334"
-                  />
+                    src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/20c8fdd5-9f4a-4917-ae90-0239a52e8334" />
                   <div class="slide-overlay">
                     <h2>Smooth Jazz Journey</h2>
                     <button>
@@ -124,8 +137,7 @@
                 </div>
                 <div class="swiper-slide">
                   <img
-                    src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/df461a99-2fb3-4d55-ac16-2e0c6dd783e1"
-                  />
+                    src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/df461a99-2fb3-4d55-ac16-2e0c6dd783e1" />
                   <div class="slide-overlay">
                     <h2>Uplifting Rhythms</h2>
                     <button>
@@ -136,86 +148,77 @@
               </div>
               <div class="swiper-pagination"></div>
             </div>
-          </div>
+          </div> -->
 
-          <div class="artists">
+          <div class="artists" id="artists-section">
             <h1>Featured Artists</h1>
             <div class="artist-container containers">
               <div class="artist">
                 <img
                   src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/c8feaa0f-6ae7-4c69-bb7d-4a11de76b4f5"
-                  alt=""
-                />
+                  alt="" />
                 <p>Taylor Swift</p>
               </div>
 
               <div class="artist">
                 <img
                   src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/bf80314e-5a02-4702-bb64-eae8c113c417"
-                  alt=""
-                />
+                  alt="" />
                 <p>The Weeknd</p>
               </div>
 
               <div class="artist">
                 <img
                   src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/e4576af8-0e84-4343-8f90-7a01acb9c8b7"
-                  alt=""
-                />
+                  alt="" />
                 <p>Dua Lipa</p>
               </div>
 
               <div class="artist">
                 <img
                   src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/d8eb2888-1e74-4117-82d7-833ad29e3cc1"
-                  alt=""
-                />
+                  alt="" />
                 <p>Jimin</p>
               </div>
 
               <div class="artist">
                 <img
                   src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/f23adc16-11d7-41dc-af6a-191e03a81603"
-                  alt=""
-                />
+                  alt="" />
                 <p>Alicia Keys</p>
               </div>
 
               <div class="artist">
                 <img
                   src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/f511c102-3217-4bea-bede-8be23b969bd8"
-                  alt=""
-                />
+                  alt="" />
                 <p>Maroon 5</p>
               </div>
 
               <div class="artist">
                 <img
                   src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/9a8bd237-b525-43e6-a37c-daaac39db8ce"
-                  alt=""
-                />
+                  alt="" />
                 <p>Imagine Dragons</p>
               </div>
 
               <div class="artist">
                 <img
                   src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/99452c85-26f4-4ccd-b439-7d1bd3875634"
-                  alt=""
-                />
+                  alt="" />
                 <p>Billie Eilish</p>
               </div>
             </div>
           </div>
 
-          <div class="albums">
+          <div class="albums" id="albums-section">
             <h1>Recommended Albums</h1>
             <div class="album-container containers">
               <div class="album">
                 <div class="album-frame">
                   <img
                     src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/74c4f0f9-d73e-4737-83fa-ea4afe392229"
-                    alt=""
-                  />
+                    alt="" />
                 </div>
                 <div>
                   <h2>Views</h2>
@@ -227,8 +230,7 @@
                 <div class="album-frame">
                   <img
                     src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/d3a0bac0-fdb4-467e-bdf5-f3f415928f24"
-                    alt=""
-                  />
+                    alt="" />
                 </div>
                 <div>
                   <h2>Speak Now</h2>
@@ -240,8 +242,7 @@
                 <div class="album-frame">
                   <img
                     src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/85521a12-cc46-4b9f-a742-21ba407ebd5e"
-                    alt=""
-                  />
+                    alt="" />
                 </div>
                 <div>
                   <h2>Born to Die</h2>
@@ -253,8 +254,7 @@
                 <div class="album-frame">
                   <img
                     src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/4e7bf466-7fa5-4dad-b628-5bca12833b64"
-                    alt=""
-                  />
+                    alt="" />
                 </div>
                 <div>
                   <h2>Endless Summer Vacation</h2>
@@ -266,8 +266,7 @@
                 <div class="album-frame">
                   <img
                     src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/f01f546a-7ab7-4e90-acb9-1c1e817b676d"
-                    alt=""
-                  />
+                    alt="" />
                 </div>
                 <div>
                   <h2>The Dark Side of The Moon</h2>
@@ -275,6 +274,10 @@
                 </div>
               </div>
             </div>
+          </div>
+
+          <div class="Chart" id="chart-section">
+            <h1></h1>
           </div>
         </div>
 
@@ -286,8 +289,7 @@
                 <div class="song-img">
                   <img
                     src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/ea61baa7-9c4b-4f43-805e-81de5fc8aa2b"
-                    alt=""
-                  />
+                    alt="" />
                   <div class="overlay">
                     <i class="fa-solid fa-play"></i>
                   </div>
@@ -303,8 +305,7 @@
                 <div class="song-img">
                   <img
                     src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/6f72f702-c049-46fe-af76-a3b188b9a909"
-                    alt=""
-                  />
+                    alt="" />
                   <div class="overlay">
                     <i class="fa-solid fa-play"></i>
                   </div>
@@ -320,8 +321,7 @@
                 <div class="song-img">
                   <img
                     src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/ad2e664a-3ab9-4f30-933a-623e26999030"
-                    alt=""
-                  />
+                    alt="" />
                   <div class="overlay">
                     <i class="fa-solid fa-play"></i>
                   </div>
@@ -337,8 +337,7 @@
                 <div class="song-img">
                   <img
                     src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/666e065b-eb53-4320-a580-30e266370955"
-                    alt=""
-                  />
+                    alt="" />
                   <div class="overlay">
                     <i class="fa-solid fa-play"></i>
                   </div>
@@ -354,8 +353,7 @@
                 <div class="song-img">
                   <img
                     src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/619ed17f-5df2-4d32-a419-78f120a1aa5c"
-                    alt=""
-                  />
+                    alt="" />
                   <div class="overlay">
                     <i class="fa-solid fa-play"></i>
                   </div>
@@ -371,8 +369,7 @@
                 <div class="song-img">
                   <img
                     src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/0ed3f51d-b769-4256-a4dd-8f35b12a1690"
-                    alt=""
-                  />
+                    alt="" />
                   <div class="overlay">
                     <i class="fa-solid fa-play"></i>
                   </div>
@@ -388,8 +385,7 @@
                 <div class="song-img">
                   <img
                     src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/33779e1a-55f9-402a-b004-002395d0fbf1"
-                    alt=""
-                  />
+                    alt="" />
                   <div class="overlay">
                     <i class="fa-solid fa-play"></i>
                   </div>
@@ -405,8 +401,7 @@
                 <div class="song-img">
                   <img
                     src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/96bc0648-51f9-46ab-a426-766c6bc93d80"
-                    alt=""
-                  />
+                    alt="" />
                   <div class="overlay">
                     <i class="fa-solid fa-play"></i>
                   </div>
@@ -422,8 +417,7 @@
                 <div class="song-img">
                   <img
                     src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/885b67a7-1816-4235-9dd3-5d879a202728"
-                    alt=""
-                  />
+                    alt="" />
                   <div class="overlay">
                     <i class="fa-solid fa-play"></i>
                   </div>
@@ -467,5 +461,7 @@
         </div>
       </section>
     </main>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="../static/js/script.js"></script>
   </body>
-</head>
+</html>
