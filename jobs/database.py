@@ -62,6 +62,67 @@ class DatabaseManager:
             """
         with self.conn.cursor() as cursor:
                 cursor.execute(command)
+     
+    def create_table_albums(self):
+        command = \
+            """
+                    CREATE TABLE if not exists albums (
+            album_id VARCHAR PRIMARY KEY,
+            album_name VARCHAR,
+            album_popularity INT,
+            total_tracks INT,
+            album_ref VARCHAR,
+            album_release_date varchar,
+            album_image VARCHAR,
+            album_img_sm VARCHAR,
+            album_img_md VARCHAR,
+            album_img_lg VARCHAR
+        );
+            """
+        with self.conn.cursor() as cursor:
+                cursor.execute(command)
+     
+    def create_table_artists(self):
+        command = \
+            """
+            CREATE TABLE if not exists artists (
+            artist_id VARCHAR PRIMARY KEY,
+            artist_name VARCHAR,
+            genres TEXT[],
+            artist_popularity INT,
+            artist_followers INT,
+            artist_profile VARCHAR,
+            image VARCHAR,
+            lg_image VARCHAR,
+            md_image VARCHAR,
+            sm_image VARCHAR
+        );
+            """
+        with self.conn.cursor() as cursor:
+                cursor.execute(command)
+     
+     def create_table_tracks(self):
+        command = \
+            """
+            CREATE TABLE if not exists audio_features (
+            af_track_id VARCHAR PRIMARY KEY,
+            af_danceability DECIMAL,
+            af_energy DECIMAL,
+            af_loudness DECIMAL,
+            af_mode INT,
+            af_acousticness DECIMAL,
+            af_instrumentalness DECIMAL,
+            af_liveness DECIMAL,
+            af_valence DECIMAL,
+            af_tempo DECIMAL,
+            af_key INT,
+            af_speechiness DECIMAL,
+            af_time_signature INT,
+            af_duration_ms INT
+        );
+            """
+        with self.conn.cursor() as cursor:
+                cursor.execute(command)
          
     def insert_data(self, table, data):
         """Insert data into the table."""
