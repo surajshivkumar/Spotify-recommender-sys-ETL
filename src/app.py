@@ -29,8 +29,10 @@ app = Flask(__name__)
 @app.route("/home",methods=['GET', 'POST'])
 def home():
     songs = caller.getSongs()
-    songs = songs.values.tolist()
+    print(songs.columns)
+    songs = songs['Track Name'].unique().tolist()
     return render_template("search.html",songs = songs)
+
 
 # @app.route("/recommend")
 # def dashboard():

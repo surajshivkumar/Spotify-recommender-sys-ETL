@@ -41,51 +41,6 @@
           <h1 class="heading-text">Spoti-Suggest</h1>
         </div>
 
-<<<<<<< HEAD
-    <script>
-  let flaskData = {{ allCars|tojson }};
-
-  const autoCompleteJS = new autoComplete({
-    selector: "#autoComplete",
-    placeHolder: "Search for Cars...",
-    searchEngine: "strict",
-    threshold: 1,
-    data: {
-      src: flaskData,
-      cache: true,
-    },
-    resultsList: {
-      element: (list, data) => {
-        if (!data.results.length) {
-          const message = document.createElement("div");
-          message.setAttribute("class", "no_result");
-          message.innerHTML = `<span>Found No Results for "${data.query}"</span>`;
-          list.prepend(message);
-        }
-      },
-      noResults: true,
-    },
-    resultItem: {
-      highlight: true,
-    },
-    events: {
-      input: {
-        selection: (event) => {
-          const selection = event.detail.selection.value;
-          autoCompleteJS.input.value = selection;
-          document.getElementById("myForm").submit();
-        },
-      },
-    },
-  });
-
-  function submitForm(type) {
-    console.log(type);
-    document.getElementById("search-term-by-type").value = type;
-    document.getElementById("hiddenForm").submit();
-  }
-</script>
-=======
         <div
           class="autoComplete_wrapper !flex lg:justify-start justify-center lg:pt-6 pt-3"
         >
@@ -186,7 +141,6 @@
       //     console.log(event);
       //   });
     </script>
->>>>>>> 42920d1f88655357df26d2d29743105d744aab52
     <script src="../static/js/search.js"></script>
   </body>
 </html>
