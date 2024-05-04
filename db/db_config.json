@@ -6,7 +6,7 @@
     "port": 5432,
     "password": "ism6562",
     "table_recommendation": "recommendations",
-    "table_tracks": "tracks_details",
+    "table_tracks": "track_details",
     "table_albums": "albums",
     "table_artists": "artists",
     "table_audio_features": "audiofeatures"
