@@ -32,10 +32,20 @@ def home():
     songs = songs.values.tolist()
     return render_template("search.html",songs = songs)
 
-@app.route("/recommend")
-def dashboard():
-    return render_template("dashboard.html")
+# @app.route("/recommend")
+# def dashboard():
+#     return render_template("dashboard.html")
 
+@app.route("/results",methods=['POST'])
+def results():
+    '''
+    Endpoint that handles the search functionality and displays results.
+    '''
+    if request.method == 'POST':
+        searchTerm = request.form.get('search-term')
+        #db search logic below
+        results = ['test']
+        return render_template('dashboard.html', results=results)
 
 
 
