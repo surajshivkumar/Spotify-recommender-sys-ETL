@@ -1,6 +1,6 @@
 from database import DatabaseManager
 import pandas as pd
-warnings.filterwarnings("ignore")
+#warnings.filterwarnings("ignore")
 
 import json
 
@@ -16,9 +16,12 @@ config_db = load_config(base_dir + 'db/db_config.json')
 
 
 def main():
-    recommed_df = pd.read_csv('../data/output/recommendations.csv')
+    recommed_df = pd.read_csv('../data/output/recommendations_.csv')
+    print(recommed_df.columns)
     dBConfig = config_db["spotify_db"]
     loader_sql = DatabaseManager(dBConfig)
-    loader_sql.insert_data(dBConfig["table_recommendation"], recommed_df.toPandas().fillna(0).values)
+    loader_sql.insert_data(dBConfig["table_recommendation"], recommed_df.fillna(0).values)
 
 
+if __name__ == "__main__":
+    main()
