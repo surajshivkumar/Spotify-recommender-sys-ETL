@@ -2,9 +2,9 @@
   "spotify_db": {
     "dbname": "spotify",
     "host": "localhost",
-    "user": "student",
+    "user": "postgres",
     "port": 5432,
-    "password": "ism6562",
+    "password": "1234",
     "table_recommendation": "recommendations",
     "table_tracks": "track_details",
     "table_albums": "albums",
