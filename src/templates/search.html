@@ -6,8 +6,9 @@
     <title>Music Player || Foremost Project</title>
     <link
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@10.2.7/dist/css/autoComplete.min.css"
+      href="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@10.2.7/dist/css/autoComplete.02.min.css"
     />
+
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
@@ -23,6 +24,27 @@
     />
     <link rel="stylesheet" href="../static/css/styles.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/rxjs/7.5.4/rxjs.umd.min.js"></script>
+    <style>
+      #autoComplete::-webkit-input-placeholder {
+        /* For Chrome, Safari, and Opera */
+        color: white; /* Change placeholder color */
+      }
+      #autoComplete::-moz-placeholder {
+        /* For Firefox */
+        color: white; /* Change placeholder color */
+        opacity: 1; /* Make sure placeholder is fully visible */
+      }
+      #autoComplete:-ms-input-placeholder {
+        /* For Edge */
+        color: white; /* Change placeholder color */
+      }
+      #autoComplete {
+        background: transparent;
+        border: 1px solid white;
+        border-radius: 8px;
+        color: white;
+      }
+    </style>
   </head>
 
   <body>
@@ -104,22 +126,34 @@
           src: flaskData,
           // cache: true,
         },
-        debounce: 600,
-        // query: (input) => {
-        //   return input.replace("pizza", "burger");
-        // },
+        debounce: 200,
+        resultItem: {
+          highlight: true,
+        },
         resultsList: {
           element: (list, data) => {
-            if (!data.results.length) {
-              const message = document.createElement("div");
-              message.setAttribute("class", "no_result");
-              message.innerHTML = `<span>Found No Results for "${data.query}"</span>`;
-              list.prepend(message);
+            const info = document.createElement("p");
+            if (data.results.length > 0) {
+              info.innerHTML = `Displaying <strong>${data.results.length}</strong> out of <strong>${data.matches.length}</strong> results`;
+            } else {
+              info.innerHTML = `Found <strong>${data.matches.length}</strong> matching results for <strong>"${data.query}"</strong>`;
             }
+            list.prepend(info);
           },
           noResults: true,
+          maxResults: 15,
+          tabSelect: true,
         },
         resultItem: {
+          element: (item, data) => {
+            // Modify Results Item Style
+            item.style = "display: flex; justify-content: space-between;";
+            // Modify Results Item Content
+            item.innerHTML = `
+      <span style="text-overflow: ellipsis; white-space: nowrap; overflow: hidden;">
+        ${data.match}
+      </span>`;
+          },
           highlight: true,
         },
         events: {
@@ -130,16 +164,12 @@
               autoCompleteJS.input.value = selection;
               document.getElementById("myForm").submit();
             },
+            focus: () => {
+              if (autoCompleteJS.input.value.length) autoCompleteJS.start();
+            },
           },
         },
       });
-
-      // document
-      //   .querySelector("#autoComplete")
-      //   .addEventListener("response", function (event) {
-      //     // "event.detail" carries the returned data values
-      //     console.log(event);
-      //   });
     </script>
     <script src="../static/js/search.js"></script>
   </body>
