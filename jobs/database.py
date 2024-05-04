@@ -13,6 +13,7 @@ class DatabaseManager:
         )
         self.conn.autocommit = True
         self.create_table_recommendations()
+        self.create_table_tracks()
 
     def create_table_recommendations(self):
         command = \
@@ -35,6 +36,33 @@ class DatabaseManager:
                 cursor.execute(command)
          
 
+
+    def create_table_tracks(self):
+        command = \
+            """
+            CREATE TABLE IF NOT EXISTS track_details (
+            track_id VARCHAR PRIMARY KEY,
+            track_name VARCHAR,
+            track_popularity INT,
+            track_href VARCHAR,
+            track_release_date DATE,
+            album_id VARCHAR,
+            artist0 VARCHAR,
+            artist1 VARCHAR,
+            artist2 VARCHAR,
+            artist3 VARCHAR,
+            artist4 VARCHAR,
+            artist5 VARCHAR,
+            artist6 VARCHAR,
+            artist7 VARCHAR,
+            artist8 VARCHAR,
+            artist9 VARCHAR,
+            artist10 VARCHAR
+        );
+            """
+        with self.conn.cursor() as cursor:
+                cursor.execute(command)
+         
     def insert_data(self, table, data):
         """Insert data into the table."""
         # Assuming data is a list of tuples corresponding to the table columns
