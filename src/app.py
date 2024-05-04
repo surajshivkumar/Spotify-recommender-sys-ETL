@@ -33,11 +33,18 @@ def home():
     songs = songs['Track Name'].unique().tolist()
     return render_template("search.html",songs = songs)
 
+<<<<<<< HEAD
 
 # @app.route("/recommend")
 # def dashboard():
 #     return render_template("dashboard.html")
 
+=======
+# @app.route("/recommend")
+# def dashboard():
+#     return render_template("dashboard.html")
+
+>>>>>>> bf4c7c01a4cf52f3ed30bfcf00e8d6be4d5f5a7d
 @app.route("/results",methods=['POST'])
 def results():
     '''
@@ -46,7 +53,30 @@ def results():
     if request.method == 'POST':
         searchTerm = request.form.get('search-term')
         #db search logic below
+<<<<<<< HEAD
         results = ['test']
+=======
+        results = [
+            {
+							'name': 'Blank Space',
+							'imgUrl': 'https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/ea61baa7-9c4b-4f43-805e-81de5fc8aa2b',
+							'artistName': 'Taylor Swift',
+							'timeStamp': '4:33'
+            },
+						{
+							'name': 'Blank Space',
+							'imgUrl': 'https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/ea61baa7-9c4b-4f43-805e-81de5fc8aa2b',
+							'artistName': 'Taylor Swift',
+							'timeStamp': '4:33'
+            },
+						{
+							'name': 'Blank Space',
+							'imgUrl': 'https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/ea61baa7-9c4b-4f43-805e-81de5fc8aa2b',
+							'artistName': 'Taylor Swift',
+							'timeStamp': '4:33'
+            }
+        ]
+>>>>>>> bf4c7c01a4cf52f3ed30bfcf00e8d6be4d5f5a7d
         return render_template('dashboard.html', results=results)
 
 

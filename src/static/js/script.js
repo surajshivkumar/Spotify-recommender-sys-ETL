@@ -56,12 +56,12 @@ let rotationInterval;
 
 const songs = [
   {
-    title: "Redemption",
-    name: "Besomorph & Coopex",
+    title: "Delicate",
+    name: "Taylor Swift",
     source:
-      "https://github.com/ecemgo/mini-samples-great-tricks/raw/main/song-list/Besomorph-Coopex-Redemption.mp3",
+      "https://github.com/ecemgo/mini-samples-great-tricks/raw/main/song-list/Taylor-Swift-Delicate.mp3",
     cover:
-      "https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/398875d0-9b9e-494a-8906-210aa3f777e0",
+      "https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/c8feaa0f-6ae7-4c69-bb7d-4a11de76b4f5",
   },
   {
     title: "What's The Problem?",
@@ -181,7 +181,7 @@ var swiperplaylist = new Swiper(".swiper", {
     modifier: 1,
     slideShadows: false,
   },
-   on: {
+  on: {
     click(event) {
       swiper.slideTo(this.clickedIndex);
     },
@@ -190,4 +190,3 @@ var swiperplaylist = new Swiper(".swiper", {
     el: ".swiper-pagination",
   },
 });
-
