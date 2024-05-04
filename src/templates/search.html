@@ -6,14 +6,9 @@
     <title>Music Player || Foremost Project</title>
     <link
       rel="stylesheet"
-<<<<<<< HEAD
       href="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@10.2.7/dist/css/autoComplete.min.css"
     />
-=======
-      href="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@10.2.7/dist/css/autoComplete.02.min.css"
-    />
 
->>>>>>> bf4c7c01a4cf52f3ed30bfcf00e8d6be4d5f5a7d
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
@@ -29,8 +24,6 @@
     />
     <link rel="stylesheet" href="../static/css/styles.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/rxjs/7.5.4/rxjs.umd.min.js"></script>
-<<<<<<< HEAD
-=======
     <style>
       #autoComplete::-webkit-input-placeholder {
         /* For Chrome, Safari, and Opera */
@@ -52,7 +45,6 @@
         color: white;
       }
     </style>
->>>>>>> bf4c7c01a4cf52f3ed30bfcf00e8d6be4d5f5a7d
   </head>
 
   <body>
@@ -134,7 +126,6 @@
           src: flaskData,
           // cache: true,
         },
-<<<<<<< HEAD
         debounce: 600,
         // query: (input) => {
         //   return input.replace("pizza", "burger");
@@ -151,7 +142,6 @@
           noResults: true,
         },
         resultItem: {
-=======
         debounce: 200,
         resultItem: {
           highlight: true,
@@ -180,7 +170,6 @@
         ${data.match}
       </span>`;
           },
->>>>>>> bf4c7c01a4cf52f3ed30bfcf00e8d6be4d5f5a7d
           highlight: true,
         },
         events: {
@@ -191,7 +180,6 @@
               autoCompleteJS.input.value = selection;
               document.getElementById("myForm").submit();
             },
-<<<<<<< HEAD
           },
         },
       });
@@ -202,14 +190,12 @@
       //     // "event.detail" carries the returned data values
       //     console.log(event);
       //   });
-=======
             focus: () => {
               if (autoCompleteJS.input.value.length) autoCompleteJS.start();
             },
           },
         },
       });
->>>>>>> bf4c7c01a4cf52f3ed30bfcf00e8d6be4d5f5a7d
     </script>
     <script src="../static/js/search.js"></script>
   </body>
