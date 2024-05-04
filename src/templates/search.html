@@ -48,16 +48,49 @@
       </div>
    
 
-    <!-- <script>
-      function redirectToIndex() {
-        // Get the search query from the input field
-        var searchQuery = document.querySelector(".search-bar").value;
+    <script>
+  let flaskData = {{ allCars|tojson }};
 
-        // Redirect to index.html with search query as URL parameter
-        window.location.href =
-          "index.html?query=" + encodeURIComponent(searchQuery);
-      }
-    </script> -->
+  const autoCompleteJS = new autoComplete({
+    selector: "#autoComplete",
+    placeHolder: "Search for Cars...",
+    searchEngine: "strict",
+    threshold: 1,
+    data: {
+      src: flaskData,
+      cache: true,
+    },
+    resultsList: {
+      element: (list, data) => {
+        if (!data.results.length) {
+          const message = document.createElement("div");
+          message.setAttribute("class", "no_result");
+          message.innerHTML = `<span>Found No Results for "${data.query}"</span>`;
+          list.prepend(message);
+        }
+      },
+      noResults: true,
+    },
+    resultItem: {
+      highlight: true,
+    },
+    events: {
+      input: {
+        selection: (event) => {
+          const selection = event.detail.selection.value;
+          autoCompleteJS.input.value = selection;
+          document.getElementById("myForm").submit();
+        },
+      },
+    },
+  });
+
+  function submitForm(type) {
+    console.log(type);
+    document.getElementById("search-term-by-type").value = type;
+    document.getElementById("hiddenForm").submit();
+  }
+</script>
     <script src="../static/js/search.js"></script>
   </body>
 </html>
