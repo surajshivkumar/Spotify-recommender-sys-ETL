@@ -26,8 +26,8 @@ def main():
     loader_sql = DatabaseManager(dBConfig)
 #    loader_sql.insert_data(dBConfig["table_recommendation"], recommed_df.fillna(0).values)
     #loader_sql.insert_data(dBConfig["table_tracks"], tracks_df.fillna(0).values)
-    loader_sql.insert_data(dBConfig["table_artists"], artists_df.fillna(0).values)
-    loader_sql.insert_data(dBConfig["table_albums"], albums_df.fillna(0).values)
+#    loader_sql.insert_data(dBConfig["table_artists"], artists_df.fillna(0).values)
+#    loader_sql.insert_data(dBConfig["table_albums"], albums_df.fillna(0).values)
     loader_sql.insert_data(dBConfig["table_audio_features"], audio_feats.fillna(0).values)
 
 
