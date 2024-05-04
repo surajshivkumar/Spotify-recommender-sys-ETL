@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=1024, initial-scale=1.0" />
     <title>Music Player || Foremost Project</title>
     <link rel="stylesheet" href="../static/css/style.css" />
     <link
@@ -20,58 +20,66 @@
     />
     <link rel="stylesheet" href="../static/css/styles.css" />
   </head>
-  <body>
+  <body style="background: black; display: block">
     <main style="position: relative">
       <nav class="main-menu">
-        <div>
-          <div class="user-info">
-            <img
-              src="https://img.freepik.com/premium-vector/vector-icon-girl-wearing-headphones_176841-6678.jpg"
-              alt="user"
-            />
-            <p>Sharvari More</p>
-          </div>
-          <ul>
-            <li class="nav-item active">
-              <a href="#">
-                <i class="fa fa-search nav-icon"></i>
-                <span class="nav-text">Discover</span>
-                <span class="tooltip">Browse</span>
-              </a>
-            </li>
-
-            <li class="nav-item">
-              <a href="#artists-section">
-                <i class="fa fa-guitar nav-icon"></i>
-                <span class="nav-text">Artists</span>
-                <span class="tooltip">Artists</span>
-              </a>
-            </li>
-
-            <li class="nav-item">
-              <a href="#albums-section">
-                <i class="fa fa-compact-disc nav-icon"></i>
-                <span class="nav-text">Album</span>
-                <span class="tooltip">Albums</span>
-              </a>
-            </li>
-
-            <li class="nav-item">
-              <a href="#chart-section">
-                <i class="fa fa-chart-line"></i>
-                <span class="nav-text">Chart</span>
-                <span class="tooltip">Chart</span>
-              </a>
-            </li>
-
-            <!-- <li class="nav-item">
-              <a href="#">
-                <i class="fa fa-heart nav-icon"></i>
-                <span class="nav-text">Favorites</span>
-              </a>
-            </li> -->
-          </ul>
+        <div
+          style="
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem;
+            background: #0f172a;
+            border-radius: 8px;
+          "
+        >
+          <img
+            src="https://img.freepik.com/premium-vector/vector-icon-girl-wearing-headphones_176841-6678.jpg"
+            alt="user"
+            style="width: 2rem; height: 2rem; border-radius: 100%"
+          />
+          <p style="color: white">Suraj S</p>
         </div>
+
+        <ul
+          style="
+            height: 100%;
+            background: #0f172a;
+            padding: 0.5rem 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            border-radius: 8px;
+          "
+        >
+          <li class="nav-item active">
+            <a href="#">
+              <i class="fa fa-search nav-icon"></i>
+              <span class="nav-text">Discover</span>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="#artists-section">
+              <i class="fa fa-guitar nav-icon"></i>
+              <span class="nav-text">Artists</span>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="#albums-section">
+              <i class="fa fa-compact-disc nav-icon"></i>
+              <span class="nav-text">Albums</span>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="#chart-section">
+              <i class="fa fa-chart-line nav-icon"></i>
+              <span class="nav-text">Chart</span>
+            </a>
+          </li>
+        </ul>
       </nav>
 
       <section class="content">
@@ -302,98 +310,86 @@
           </div>
         </div>
       </section>
-
-      <div
-        style="
-          position: absolute;
-          bottom: 0;
-          background: #065f46;
-          color: white;
-          width: 100%;
-          z-index: 50;
-        "
-      >
-        <div class="music-player">
-          <div style="display: flex; gap: 1rem">
-            <div class="album-cover">
-              <img src="images/album-cover.png" id="rotatingImage" alt="" />
-              <span class="point"></span>
-            </div>
-
-            <div
-              style="
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-              "
-            >
-              <h2>Redemption</h2>
-              <p>Besomorph & Coopex</p>
-            </div>
+    </main>
+    <div class="bottom-player">
+      <div class="music-player">
+        <div style="display: flex; gap: 1rem">
+          <div class="album-cover">
+            <img src="images/album-cover.png" id="rotatingImage" alt="" />
+            <span class="point"></span>
           </div>
 
           <div
             style="
               display: flex;
               flex-direction: column;
-              gap: 0.5rem;
               justify-content: center;
             "
           >
-            <div class="controls">
-              <button class="backward">
-                <i class="fa-solid fa-backward"></i>
-              </button>
-              <button class="play-pause-btn">
-                <i class="fa-solid fa-play" id="controlIcon"></i>
-              </button>
-              <button class="forward">
-                <i class="fa-solid fa-forward"></i>
-              </button>
-            </div>
-
-            <div style="display: flex; justify-content: center">
-              <audio id="song">
-                <source
-                  src="Besomorph-Coopex-Redemption.mp3"
-                  type="audio/mpeg"
-                />
-              </audio>
-              <input type="range" value="0" id="progress" />
-            </div>
-          </div>
-
-          <div
-            style="
-              display: flex;
-              justify-content: center;
-              align-items: center;
-              gap: 0.5rem;
-            "
-          >
-            <i
-              id="toggleVolume"
-              class="fa-solid fa-volume-low"
-              style="color: white"
-              onclick="toggleVolume()"
-            ></i>
-            <input type="range" value="100" id="volumeSlider" />
+            <h2>Redemption</h2>
+            <p>Besomorph & Coopex</p>
           </div>
         </div>
+
+        <div
+          style="
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            justify-content: center;
+          "
+        >
+          <div class="controls">
+            <button class="backward">
+              <i class="fa-solid fa-backward"></i>
+            </button>
+            <button class="play-pause-btn">
+              <i class="fa-solid fa-play" id="controlIcon"></i>
+            </button>
+            <button class="forward">
+              <i class="fa-solid fa-forward"></i>
+            </button>
+          </div>
+
+          <div style="display: flex; justify-content: center">
+            <audio id="song">
+              <source src="Besomorph-Coopex-Redemption.mp3" type="audio/mpeg" />
+            </audio>
+            <input type="range" value="0" id="progress" />
+          </div>
+        </div>
+
+        <div
+          style="
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0.5rem;
+            box-sizing: border-box;
+          "
+        >
+          <i
+            id="toggleVolume"
+            class="fa-solid fa-volume-low"
+            style="color: white"
+            onclick="toggleVolume()"
+          ></i>
+          <input type="range" value="100" id="volumeSlider" />
+        </div>
       </div>
-    </main>
+    </div>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="../static/js/script.js"></script>
     <script>
           let flaskData = {{ results|tojson }};
 
           const audio = document.getElementById('song');
-          audio.play();
+          // audio.play();
           // if (audio.paused) {
           // }
           const volumeSlider = document.getElementById('volumeSlider');
           const toggleVolumeIcon = document.getElementById("toggleVolume")
-          audio.volume = volumeSlider.value / 100;
+          // audio.volume = volumeSlider.value / 100;
           volumeSlider.addEventListener('#volumeSlider', function() {
             audio.volume = volumeSlider.value / 100;
           });
