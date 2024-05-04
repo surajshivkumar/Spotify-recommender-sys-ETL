@@ -32,10 +32,39 @@ def home():
     songs = songs.values.tolist()
     return render_template("search.html",songs = songs)
 
-@app.route("/recommend")
-def dashboard():
-    return render_template("dashboard.html")
+# @app.route("/recommend")
+# def dashboard():
+#     return render_template("dashboard.html")
 
+@app.route("/results",methods=['POST'])
+def results():
+    '''
+    Endpoint that handles the search functionality and displays results.
+    '''
+    if request.method == 'POST':
+        searchTerm = request.form.get('search-term')
+        #db search logic below
+        results = [
+            {
+							'name': 'Blank Space',
+							'imgUrl': 'https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/ea61baa7-9c4b-4f43-805e-81de5fc8aa2b',
+							'artistName': 'Taylor Swift',
+							'timeStamp': '4:33'
+            },
+						{
+							'name': 'Blank Space',
+							'imgUrl': 'https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/ea61baa7-9c4b-4f43-805e-81de5fc8aa2b',
+							'artistName': 'Taylor Swift',
+							'timeStamp': '4:33'
+            },
+						{
+							'name': 'Blank Space',
+							'imgUrl': 'https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/ea61baa7-9c4b-4f43-805e-81de5fc8aa2b',
+							'artistName': 'Taylor Swift',
+							'timeStamp': '4:33'
+            }
+        ]
+        return render_template('dashboard.html', results=results)
 
 
 
