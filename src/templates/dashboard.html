@@ -53,10 +53,18 @@
             border-radius: 8px;
           "
         >
-          <li class="nav-item active">
+          <!-- <li class="nav-item ">
             <a href="#">
               <i class="fa fa-search nav-icon"></i>
               <span class="nav-text">Discover</span>
+            </a>
+          </li> -->
+          <li class="nav-item active">
+            <a href="#chart-section">
+              <i class="fa fa-chart-line nav-icon"></i>
+              <span class="nav-text" style="white-space: nowrap"
+                >Mood Chart</span
+              >
             </a>
           </li>
 
@@ -73,11 +81,10 @@
               <span class="nav-text">Albums</span>
             </a>
           </li>
-
           <li class="nav-item">
-            <a href="#chart-section">
-              <i class="fa fa-chart-line nav-icon"></i>
-              <span class="nav-text">Chart</span>
+            <a href="/home">
+              <i class="fa fa-magnifying-glass nav-icon"></i>
+              <span class="nav-text" style="white-space: nowrap">Search</span>
             </a>
           </li>
         </ul>
@@ -144,7 +151,7 @@
             </div>
           </div> -->
 
-          <div>
+          <div id="chart-section">
             <h1>Your Mood</h1>
             <div
               style="
@@ -262,7 +269,7 @@
                   <h2>{{song.name}}</h2>
                   <p>{{song.artistName}}</p>
                 </div>
-                <span>{{song.timeStamp}}</span>
+                <span>{{song.timeStamp}}:00</span>
               </div>
               {% endfor %}
             </div>
@@ -342,6 +349,8 @@
     <script>
       const flaskData = {{ results|tojson }};
       const moodGraphData = {{ mood|tojson}};
+      console.log('flaskData', flaskData)
+      console.log('moodGraphData', moodGraphData)
 
       const audio = document.getElementById("song");
       const volumeSlider = document.getElementById("volumeSlider");
