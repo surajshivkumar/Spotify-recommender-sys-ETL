@@ -45,8 +45,9 @@ def results():
         searchTerm = request.form.get('search-term')
         trackID = caller.getTrackID(searchTerm)
         recoms = caller.getRecommendations(trackID=trackID)
-        recDetails = caller.getRecommendationTrackDetails(recoms)
-        print(recDetails)
+        recDetails,mood = caller.getRecommendationTrackDetails(recoms)
+        mood = mood.tolist()
+        print(mood)
         #db search logic below
         results = [
             {
@@ -68,7 +69,7 @@ def results():
 							'timeStamp': '4:33'
             }
         ]
-        return render_template('dashboard.html', results=recDetails)
+        return render_template('dashboard.html', results=recDetails,mood = mood)
 
 
 

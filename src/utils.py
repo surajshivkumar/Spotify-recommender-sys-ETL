@@ -1,6 +1,6 @@
 import psycopg2
 import pandas as pd
-
+from sklearn.preprocessing import MinMaxScaler
 class DatabaseCaller:
     def __init__(self, config):
         """Initialize the database connection and create tables."""
@@ -52,8 +52,17 @@ class DatabaseCaller:
             return rows[0]
         
     def getRecommendationTrackDetails(self,trackIDS):
-        command = f"select track_name, track_href,af_duration_ms,artist_name,image from (select *,row_number() over(partition by track_name order by track_popularity desc) as rnk from track_details where track_id in {trackIDS} order by rnk) a  join (select af_track_id, af_duration_ms from audio_features) b on a.track_id = b.af_track_id join (select artist_id, artist_name,image from artists) c on a.artist0 = c.artist_id  where a.rnk=1; "
+        command = f"select track_name,track_id, track_href,af_duration_ms,artist_name,image from (select *,row_number() over(partition by track_name order by track_popularity desc) as rnk from track_details where track_id in {trackIDS} order by rnk) a  join (select * from audio_features) b on a.track_id = b.af_track_id join (select artist_id, artist_name,image from artists) c on a.artist0 = c.artist_id  where a.rnk=1; "
+        command2 = f"select * from audio_features"
         d = pd.read_sql(command,self.conn)
+        d2 = pd.read_sql(command2,self.conn)
+        for col in d2.columns:
+            try:
+                scaler = MinMaxScaler()
+                d2[col] = scaler.fit_transform(d2[col].values.reshape(-1,1))
+            except:
+                pass
+        d2 = d2[d2.af_track_id.isin(d.track_id)]
         d['af_duration_ms'] = d.af_duration_ms.map(lambda x: x//60000)
         tr_details = []
         
@@ -65,7 +74,13 @@ class DatabaseCaller:
             tr['imgUrl'] = row['image']
             tr_details.append(tr)
             
-        return tr_details
+        d2 = d2[['af_danceability','af_energy','af_loudness','af_liveness','af_valence','af_tempo']]
+        mood = d2.mean(axis=0).values
+        mood = 100*mood
+        
+        
+            
+        return tr_details,mood
     
         
 
