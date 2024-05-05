@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="../static/css/styles.css" />
   </head>
   <body style="background: black; display: block">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <main style="position: relative">
       <nav class="main-menu">
         <div
@@ -142,6 +143,21 @@
               <div class="swiper-pagination"></div>
             </div>
           </div> -->
+
+          <div>
+            <h1>Your Mood</h1>
+            <div
+              style="
+                display: flex;
+                justify-content: center;
+                align-items: center;
+              "
+            >
+              <div style="max-width: 300px">
+                <canvas id="myChart"></canvas>
+              </div>
+            </div>
+          </div>
 
           <div class="artists" id="artists-section">
             <h1>Featured Artists</h1>
@@ -324,36 +340,92 @@
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="../static/js/script.js"></script>
     <script>
-          let flaskData = {{ results|tojson }};
+      const flaskData = {{ results|tojson }};
+      const moodGraphData = {{ mood|tojson}};
 
-          const audio = document.getElementById('song');
-          // audio.play();
-          // if (audio.paused) {
-          // }
-          const volumeSlider = document.getElementById('volumeSlider');
-          const toggleVolumeIcon = document.getElementById("toggleVolume")
-          // audio.volume = volumeSlider.value / 100;
-          volumeSlider.addEventListener('#volumeSlider', function() {
-            audio.volume = volumeSlider.value / 100;
-          });
+      const audio = document.getElementById("song");
+      const volumeSlider = document.getElementById("volumeSlider");
+      const toggleVolumeIcon = document.getElementById("toggleVolume");
+      // audio.volume = volumeSlider.value / 100;
+      volumeSlider.addEventListener("#volumeSlider", function () {
+        audio.volume = volumeSlider.value / 100;
+      });
 
-          let previousVolume = 1; // Store the previous volume
-          function toggleVolume() {
-      if (audio.volume !== 0) {
-        // If not muted, save the current volume and set volume to 0 (mute)
-        previousVolume = audio.volume;
-        audio.volume = 0;
-        volumeSlider.value = 0;
-        // muteButton.textContent = 'Unmute';
-      } else {
-        // If muted, restore the previous volume
-        audio.volume = previousVolume;
-        volumeSlider.value = 100;
-        // muteButton.textContent = 'Mute';
+      let previousVolume = 1; // Store the previous volume
+      function toggleVolume() {
+        if (audio.volume !== 0) {
+          // If not muted, save the current volume and set volume to 0 (mute)
+          previousVolume = audio.volume;
+          audio.volume = 0;
+          volumeSlider.value = 0;
+          // muteButton.textContent = 'Unmute';
+        } else {
+          // If muted, restore the previous volume
+          audio.volume = previousVolume;
+          volumeSlider.value = 100;
+          // muteButton.textContent = 'Mute';
+        }
+        toggleVolumeIcon.classList.toggle("fa-volume-low");
+        toggleVolumeIcon.classList.toggle("fa-volume-xmark");
       }
-      toggleVolumeIcon.classList.toggle('fa-volume-low');
-      toggleVolumeIcon.classList.toggle('fa-volume-xmark');
-      }
+
+      const ctx = document.getElementById("myChart");
+      const data = {
+        labels: [
+          "Danceability",
+          "Energy",
+          "Loudness",
+          "Liveness",
+          "Valence",
+          "Tempo",
+        ],
+        datasets: [
+          {
+            // label: "My First Dataset",
+            data: mood,
+            // fill: true,
+            borderWidth: 1,
+            backgroundColor: "rgba(255, 99, 132, 0.4)",
+            borderColor: "rgb(255, 99, 132)",
+            pointBackgroundColor: "rgb(255, 99, 132)",
+            pointBorderColor: "#fff",
+            pointHoverBackgroundColor: "#fff",
+            pointHoverBorderColor: "rgb(255, 99, 132)",
+          },
+        ],
+      };
+      new Chart(ctx, {
+        type: "radar",
+        data: data,
+        options: {
+          elements: {
+            line: {
+              borderWidth: 1,
+            },
+          },
+          scales: {
+            r: {
+              pointLabels: {
+                color: "white",
+              },
+              ticks: {
+                color: "white",
+                backdropColor: "transparent",
+              },
+              grid: {
+                color: "#94A3B8",
+                lineWidth: 1,
+                borderDash: [2, 2],
+              },
+            },
+          },
+          plugins: {
+            legend: {
+              display: false,
+            },
+          },
+        },
+      });
     </script>
   </body>
 </html>

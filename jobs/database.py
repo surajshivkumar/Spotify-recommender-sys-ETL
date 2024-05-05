@@ -14,6 +14,8 @@ class DatabaseManager:
         self.conn.autocommit = True
         self.create_table_recommendations()
         self.create_table_tracks()
+        self.create_table_audio_features()
+        self.create_table_artists()
 
     def create_table_recommendations(self):
         command = \
@@ -88,7 +90,6 @@ class DatabaseManager:
             CREATE TABLE if not exists artists (
             artist_id VARCHAR PRIMARY KEY,
             artist_name VARCHAR,
-            genres TEXT[],
             artist_popularity INT,
             artist_followers INT,
             artist_profile VARCHAR,
