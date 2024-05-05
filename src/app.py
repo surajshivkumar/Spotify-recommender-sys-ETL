@@ -29,7 +29,7 @@ app = Flask(__name__)
 @app.route("/home",methods=['GET', 'POST'])
 def home():
     songs = caller.getSongs()
-    songs = songs.values.tolist()
+    songs = songs['Track Name'].drop_duplicates().values.tolist()
     return render_template("search.html",songs = songs)
 
 # @app.route("/recommend")
@@ -43,10 +43,14 @@ def results():
     '''
     if request.method == 'POST':
         searchTerm = request.form.get('search-term')
+        trackID = caller.getTrackID(searchTerm)
+        recoms = caller.getRecommendations(trackID=trackID)
+        recDetails = caller.getRecommendationTrackDetails(recoms)
+        print(recDetails)
         #db search logic below
         results = [
             {
-							'name': 'Blank Space',
+							'name': f'{searchTerm}',
 							'imgUrl': 'https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/ea61baa7-9c4b-4f43-805e-81de5fc8aa2b',
 							'artistName': 'Taylor Swift',
 							'timeStamp': '4:33'
@@ -64,7 +68,7 @@ def results():
 							'timeStamp': '4:33'
             }
         ]
-        return render_template('dashboard.html', results=results)
+        return render_template('dashboard.html', results=recDetails)
 
 
 
